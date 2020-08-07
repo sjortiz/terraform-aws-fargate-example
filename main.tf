@@ -1,11 +1,11 @@
 terraform {
-      backend "remote" {
-        organization = "stashconsulting"
+  backend "remote" {
+    organization = "stashconsulting"
 
-        workspaces {
-            name = "api"
-        }
+    workspaces {
+      name = "api"
     }
+  }
 }
 
 provider aws {
