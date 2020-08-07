@@ -1,0 +1,13 @@
+[
+    {
+        "environment": [],
+        "essential": true,
+        "image": "sjortiz/api",
+        "name": "api",
+        "portMappings": [
+            {
+                "containerPort": 5000
+            }
+        ]
+    }
+]
