@@ -2,11 +2,11 @@
     {
         "environment": [],
         "essential": true,
-        "image": "sjortiz/api",
+        "image": "${DockerImage}",
         "name": "api",
         "portMappings": [
             {
-                "containerPort": 5000
+                "containerPort": ${Port}
             }
         ]
     }

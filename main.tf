@@ -12,12 +12,18 @@ resource "aws_ecs_cluster" "super_cool_cluster" {
 }
 
 resource "aws_ecs_task_definition" "api_task" {
-    container_definitions   = file("task_definitions/service.json")
-    cpu                     = 256
-    family                  = "backend_api"
-    memory                  = 512
-    network_mode            = "awsvpc"
-    requires_compatibilities = ["FARGATE"]
+    container_definitions   = templatefile(
+        "task_definitions/service.tmpl",
+        {
+            DockerImage     = var.DockerImage,
+            Port            = var.Port
+        }
+    )
+    cpu                         = 256
+    family                      = "backend_api"
+    memory                      = 512
+    network_mode                = "awsvpc"
+    requires_compatibilities    = ["FARGATE"]
 }
 
 resource "aws_ecs_service" "api_service" {
